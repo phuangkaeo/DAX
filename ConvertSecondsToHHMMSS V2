@@ -1,0 +1,14 @@
+Full Duration =
+VAR _Seconds = [Duration Seconds]
+VAR _Minutes = INT( DIVIDE( _Seconds, 60))
+VAR _RemainingSeconds = MOD( _Seconds, 60)
+VAR _Hours = INT( DIVIDE( _Minutes, 60))
+VAR _RaminingMinutes = MOD( _Minutes, 60)
+
+RETURN
+	IF(
+		NOT ISBLANK( [Duration Seconds] ),
+			FORMAT( _Hours, "00") & ":"&
+			FORMAT( _RemainingMinutes, "00") & ":" &
+			FORMAT( _RemainingSeconds, "00")
+	)
